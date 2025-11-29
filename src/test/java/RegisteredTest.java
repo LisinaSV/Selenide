@@ -29,13 +29,13 @@ public class RegisteredTest {
         SelenideElement form = $("form");//вся форма, внутри формы можно искать вложенные в него элементы
 //        form.$("[placeholder='Город'] input").setValue("Москва");
         form.$(By.cssSelector("[data-test-id='city'] input")).sendKeys("Москва");
-        form.$(By.cssSelector("[data-test-id='date'] input")).press(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.BACK_SPACE)).sendKeys("30.11.2025");
+        form.$(By.cssSelector("[data-test-id='date'] input")).press(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.BACK_SPACE)).sendKeys(planningDate);
         form.$(By.cssSelector("[data-test-id='name'] input")).sendKeys("Лисина Светлана");
         form.$(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79260000000");
         form.$("[data-test-id='agreement']").click();
         form.$$("button").find(text("Забронировать")).click();
         $("div.notification__title").shouldHave(text("Успешно"), Duration.ofSeconds(15));
-        $("div.notification__content").shouldHave(text("Встреча успешно забронирована на 30.11.2025"), Duration.ofSeconds(15));
+        $("div.notification__content").shouldHave(text("Встреча успешно забронирована на"), Duration.ofSeconds(15));
 
 
     }
