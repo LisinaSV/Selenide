@@ -35,8 +35,8 @@ public class RegisteredTest {
         form.$("[data-test-id='agreement']").click();
         form.$$("button").find(text("Забронировать")).click();
         $("div.notification__title").shouldHave(text("Успешно"), Duration.ofSeconds(15));
-        $("div.notification__content").shouldHave(text("Встреча успешно забронирована на"), Duration.ofSeconds(15))
-                .shouldHave(Condition.text(planningDate), Duration.ofSeconds(15));
+        $("div.notification__content").shouldHave(text("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(15));
+
 
 
     }
